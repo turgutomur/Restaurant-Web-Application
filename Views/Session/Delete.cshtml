@@ -1,0 +1,40 @@
+@using RestaurantManagementApp.Models
+
+@model Session
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h2 class="display-5 text-danger">Delete Session</h2>
+        <p class="text-muted">Are you sure you want to delete this session?</p>
+    </div>
+
+    <!-- Session Details -->
+    <div class="p-4 rounded shadow bg-white">
+        <dl class="row">
+            <dt class="col-sm-4">Customer Name</dt>
+            <dd class="col-sm-8">@Model.CustomerName</dd>
+
+            <dt class="col-sm-4">Table Number</dt>
+            <dd class="col-sm-8">@Model.TableNumber</dd>
+
+            <dt class="col-sm-4">Menu Items</dt>
+            <dd class="col-sm-8">
+                @foreach (var item in Model.SelectedItemIds)
+                {
+                    <span class="badge badge-info">@item</span>
+                }
+            </dd>
+        </dl>
+
+        <!-- Confirmation Buttons -->
+        <div class="text-center mt-4">
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-lg btn-danger">Delete</button>
+                <a asp-action="Index" class="btn btn-lg btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h2 class="display-5" style="color: #4CAF50;">Login</h2>
+        <p class="text-muted">Enter your credentials to access your account.</p>
+    </div>
+
+    <!-- Login Form -->
+    <form method="post" asp-action="Login" class="p-4 rounded shadow bg-white" style="max-width: 400px; margin: auto;">
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username" class="font-weight-bold">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required />
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password" class="font-weight-bold">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-lg text-white" style="background-color: #4CAF50;">Login</button>
+        </div>
+
+        <!-- Error Message -->
+        @if (ViewBag.Error != null)
+        {
+            <div class="text-center mt-3">
+                <p class="text-danger">@ViewBag.Error</p>
+            </div>
+        }
+    </form>
+</div>

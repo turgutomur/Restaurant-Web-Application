@@ -1,0 +1,31 @@
+@model MenuItem
+@using RestaurantManagementApp.Models
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h2 class="display-5" style="color: #F44336;">Delete Menu Item</h2>
+        <p class="text-muted">Are you sure you want to delete the following menu item? This action cannot be undone.</p>
+    </div>
+
+    <!-- Item Details -->
+    <div class="card shadow-sm rounded mb-4">
+        <div class="card-body text-center">
+            <h4 class="card-title">@Model.Name</h4>
+            <p class="card-text text-muted">
+                <strong>Category:</strong> @Model.Category <br />
+                <strong>Price:</strong> @Model.Price.ToString("C", new System.Globalization.CultureInfo("tr-TR"))
+            </p>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Form -->
+    <form method="post" asp-action="Delete" asp-route-id="@Model.Id" class="text-center">
+        <button type="submit" class="btn btn-danger btn-lg mr-3" style="background-color: #F44336;">
+            Yes, Delete
+        </button>
+        <a asp-action="Index" class="btn btn-secondary btn-lg">
+            Cancel
+        </a>
+    </form>
+</div>

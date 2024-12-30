@@ -1,0 +1,43 @@
+@using RestaurantManagementApp.Models
+
+@model Session
+@{
+    var menuItems = ViewBag.MenuItems as List<MenuItem>;
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h2 class="display-5" style="color: #4CAF50;">Start New Session</h2>
+        <p class="text-muted">Fill out the form below to begin a new session for your customer.</p>
+    </div>
+
+    <!-- Form Section -->
+    <form asp-action="Create" class="p-4 rounded shadow bg-white">
+        <!-- Customer Name -->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="CustomerName" class="font-weight-bold">Customer Name</label>
+                <input asp-for="CustomerName" class="form-control" placeholder="Enter customer name" />
+                <small class="form-text text-muted">E.g., Omer Faruk</small>
+            </div>
+            <!-- Table Number -->
+            <div class="form-group col-md-6">
+                <label asp-for="TableNumber" class="font-weight-bold">Table Number</label>
+                <input asp-for="TableNumber" class="form-control" placeholder="Enter table number" />
+                <small class="form-text text-muted">E.g., 12</small>
+            </div>
+        </div>
+
+        <!-- Menu Item Selection (Using Tag Helper) -->
+        <div class="form-group">
+            <label class="font-weight-bold">Select Menu Items</label>
+            <menu-items name="selectedItemIds" items="@menuItems" selected-ids="@Model.SelectedItemIds"></menu-items>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-lg text-white" style="background-color: #4CAF50;">Start Session</button>
+        </div>
+    </form>
+</div>

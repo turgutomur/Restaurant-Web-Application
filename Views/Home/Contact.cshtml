@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h1>Contact Us</h1>
+<p>For support, reach out to support@restaurantapp.com.</p>
+```
+
+#### Updates to Layout (_Layout.cshtml)
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"] - Restaurant Management App</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/Home/Index">Home</a>
+            <a href="/Home/About">About</a>
+            <a href="/Home/Contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        <p>&copy; 2024 Restaurant Management App</p>
+    </footer>
+</body>
+</html>
